@@ -1,5 +1,8 @@
 "use strict";
 
+// Create Empty Slide
+createEmptyContent();
+
 // Init of the (touch friendly) Swiper slider
 const swiper = new Swiper("#mySwiper", {
   direction: "vertical",
@@ -11,13 +14,17 @@ const swiper = new Swiper("#mySwiper", {
 });
 
 swiper.on("slideChange", function () {
-  switch( swiper.activeIndex ) {
-    case 0:
-      initSlide1();
-      break;
-    case 1:
-      initSlide2();
-      break;
+  console.log(swiper.activeIndex)
+  let nbSlide = swiper.slides.length;
+  let index = swiper.activeIndex;
+  if (index == 0){
+    initSlide1();
+  }
+  else if (index == nbSlide-1){
+    initSlide2();
+  }
+  else{
+    initContentSlide()
   }
 });
 
