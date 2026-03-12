@@ -57,7 +57,7 @@ body{
 
 /* Most of the elements in this demo are absolute positioned with percentages */
 #first-slide header, #second-slide header{
-    text-align: center;
+    text-align: left;
     width: 100%;
     top: 10%;
     position: absolute;
@@ -65,7 +65,14 @@ body{
     z-index: 2;
 }
 
-#logo-hyblab{
+.chapeau {
+    font-size:150%;
+    text-align: left;
+    top: 100%;
+    position: absolute;
+}
+
+.imgPrincipale{
     text-align: center;
     width: 50%;
     left: 50%; /* center the logo, in interaction with the negative margin-left */

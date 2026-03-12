@@ -2,40 +2,27 @@
 
 // async init function (because of the awaits on fetches)
 const initSlide1 = async function(){
-  // Get logo element
-  const logo = document.querySelector('#logo-hyblab');
 
-  // (Re)set initial scale of logo
-  logo.setAttribute('style', 'transform :scale(1);');
-
-  // Animate hyblab logo and make shrink on click
-  anime({
-    targets: '#logo-hyblab',
-    scale: 1.2,
-    easing: 'easeInOutQuad',
-    direction: 'alternate',
-    loop: true
-  });
-
-  // Add click listener
-  logo.addEventListener('click', () => {
-    anime({
-        targets: '#logo-hyblab',
-        scale: 0
-      });
-    swiper.slideNext()
-  });
-
-  // Retrieve the partner's topic from our API
-  let response = await fetch('api/topic');
-  const data1 = await response.json();
-
-  // Get some dummy data
-  response = await fetch('data/contaminationMiniere.json');
+  // Get some data
+  let response = await fetch('data/contaminationMiniere.json');
   const data2 = await response.json();
 
-  // Update the DOM to insert topic and data
-  const titleSlide = document.querySelector('.titre');
-  console.log(titleSlide)
-  titleSlide.innerHTML = `${data2.titreEnquete}`;
+  // Update the DOM
+
+  // Insert title
+  const title = document.querySelector('.titre');
+  console.log(title)
+  title.innerHTML = `${data2.titreEnquete}`;
+
+  // Insert chapeau
+  const chapeau = document.querySelector('.chapeau')
+  chapeau.innerHTML = data2.chapeauEnquete;
+
+  // Insert img
+  const imgPrincipale = document.querySelector('.imgPrincipale')
+  console.log(imgPrincipale)
+  console.log(data2.imgPath)
+  imgPrincipale.src = data2.imgPath
+
+
 };
