@@ -8,7 +8,9 @@ const createEmptyContent = async function(){
     const nVolet = data.nVolet;
     let nBullet = 0;
 
-    const endSlide = document.querySelector("#credit-slide");
+    const endSlide = document.querySelector("#last-slide");
+    console.log("aA");
+    console.log(endSlide);
     const sliderWrapper = document.querySelector(".swiper-wrapper");
 
     let slide;
@@ -75,7 +77,8 @@ const createEmptyContent = async function(){
             bottom_sheet.appendChild(content)
             content.id = "extended-content"
             content.className="content"
-            console.log(data.volet[i].extendedContent)//a mettre dans le sheet
+            console.log(data.volet[i].extendedContent)//
+
 
 
             for(let j = 0; j < data.volet[i].extendedContent.length; j++){
