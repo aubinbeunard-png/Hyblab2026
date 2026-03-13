@@ -181,6 +181,102 @@ body{
     font-size: calc(15vh * 3 / 4);
 }
 
+#instagram-box{
+    border:1px solid black;
+    position: relative;
+    display: block;
+    padding : 10vh 7vh 2vh 6vh;
+    background-image: url("../img/degrade_fond_blanc.png");
+    background-position: -35px center;
+    height: 80vh;
+    font-family: "Albert Sans", sans-serif;
+    font-style: normal;
+    font-size: 8vh;
+    font-weight: normal;
+    color: black;
+    
+}
+#instagram-header{
+    width: 75%;
+    margin-bottom: 8vh;
+    text-align: left;
+
+}
+#instagram-header h1{
+    font-weight:bold;
+    font-size: 30px;
+    text-align: left;
+}
+#instagram-content{
+    width: 75%;
+    margin-top: 8vh;
+    text-align: justify;
+
+}
+.illustration{
+    max-width:42vh;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(231, 101, 101, 0.2);
+}
+/* Swipe hint on the right of the screen */
+.swipe-hint {
+  position: absolute;
+  right: 80px;        /* distance du bord gauche */
+  top: 40%;          /* milieu vertical */
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #555;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0;
+  animation: trail 1.4s ease-in-out infinite;
+}
+.dot:nth-child(1) { animation-delay: 0s; }
+.dot:nth-child(2) { animation-delay: 0.15s; }
+.dot:nth-child(3) { animation-delay: 0.30s; }
+
+@keyframes trail {
+  0%   { opacity: 0; transform: scale(0.5); }
+  40%  { opacity: 0.4; transform: scale(1); }
+  100% { opacity: 0; transform: scale(0.5); }
+}
+
+.arrow {
+  animation: slideRight 1.4s ease-in-out infinite;
+}
+
+@keyframes slideRight {
+  0%   { transform: translateX(-6px); opacity: 0.6; }
+  50%  { transform: translateX(6px);  opacity: 1; }
+  100% { transform: translateX(-6px); opacity: 0.6; }
+}
+
+.label {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+
+b {
+  font-weight: 700;
+  color: #111;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' preserveAspectRatio='none' viewBox='0 0 100 100'%3E%3Crect x='0' y='60' width='100' height='50' rx='3' fill='%23e8474a' opacity='0.55'/%3E%3Crect x='2' y='55' width='96' height='15' rx='4' fill='%23e8474a' opacity='0.4'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  padding: 0 3px 2px 2px;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+
 /* Fill the whole viewport when its aspect ratio is between 9/16 and 3/4 */
 @media screen and (max-aspect-ratio: 3/4) {
     #container{
