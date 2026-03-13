@@ -2,6 +2,155 @@
 /* ------- that adapts content width and height so that aspect ratio  ----------- */
 /* ------- is kept between 9/16 a,d 3/4 (portait orientation)         ----------- */
 
+/* Font Loading*/
+
+@font-face {
+    font-family: Albert Sans;
+    src: url();
+}
+
+/* Static Albert Sans fonts */
+@font-face {
+    font-family: 'Albert Sans';
+    src: url('data/Albert%20Sans%20Font/static/AlbertSans-Thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Albert Sans';
+    src: url('data/Albert%20Sans%20Font/static/AlbertSans-ThinItalic.ttf') format('truetype');
+    font-weight: 100;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Albert Sans';
+    src: url('data/Albert%20Sans%20Font/static/AlbertSans-ExtraLight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Albert Sans';
+    src: url('data/Albert%20Sans%20Font/static/AlbertSans-ExtraLightItalic.ttf') format('truetype');
+    font-weight: 200;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Albert Sans';
+    src: url('data/Albert%20Sans%20Font/static/AlbertSans-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Albert Sans';
+    src: url('data/Albert%20Sans%20Font/static/AlbertSans-LightItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Albert Sans';
+    src: url('data/Albert%20Sans%20Font/static/AlbertSans-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Albert Sans';
+    src: url('data/Albert%20Sans%20Font/static/AlbertSans-Italic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Albert Sans';
+    src: url('data/Albert%20Sans%20Font/static/AlbertSans-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Albert Sans';
+    src: url('data/Albert%20Sans%20Font/static/AlbertSans-MediumItalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Albert Sans';
+    src: url('data/Albert%20Sans%20Font/static/AlbertSans-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Albert Sans';
+    src: url('data/Albert%20Sans%20Font/static/AlbertSans-SemiBoldItalic.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Albert Sans';
+    src: url('data/Albert%20Sans%20Font/static/AlbertSans-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Albert Sans';
+    src: url('data/Albert%20Sans%20Font/static/AlbertSans-BoldItalic.ttf') format('truetype');
+    font-weight: 700;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Albert Sans';
+    src: url('data/Albert%20Sans%20Font/static/AlbertSans-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Albert Sans';
+    src: url('data/Albert%20Sans%20Font/static/AlbertSans-ExtraBoldItalic.ttf') format('truetype');
+    font-weight: 800;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Albert Sans';
+    src: url('data/Albert%20Sans%20Font/static/AlbertSans-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Albert Sans';
+    src: url('data/Albert%20Sans%20Font/static/AlbertSans-BlackItalic.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+}
+
+/* Variable fonts */
+@font-face {
+    font-family: 'Albert Sans';
+    src: url('data/Albert%20Sans%20Font/AlbertSans-VariableFont_wght.ttf') format('truetype-variations');
+    font-weight: 100 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Albert Sans';
+    src: url('data/Albert%20Sans%20Font/AlbertSans-Italic-VariableFont_wght.ttf') format('truetype-variations');
+    font-weight: 100 900;
+    font-style: italic;
+}
+
 /* Normalize margin and padding to ease elements positioning */
 *{
     padding:0;
@@ -12,7 +161,7 @@ body{
     background-color: #000000; /* selon le code colorimétrique fourni */
     color: white;
     overflow: hidden;   /* to avoid slider bugs on some browsers */
-    font-family: sans-serif;
+    font-family: 'Albert Sans', sans-serif;
 }
 
 .main-header {
@@ -73,6 +222,17 @@ h3 {
     font-size:50%;
 }
 
+#topBar {
+    background-color: black;
+    height: 10%;
+    top:0%;
+    z-index: 5;
+}
+
+#title, .swiper-button-next{
+    z-index:    10 !important;
+    color: white !important;
+}
 #extended-content {
     background-color: black;
     text-decoration-color: white;
@@ -101,7 +261,7 @@ h3 {
 /* Swiper slider. Need to fill the container */
 #mySwiper{
     width: 100%;
-    height:100%;
+    height:90%;
     position: absolute;
 }
 
@@ -132,7 +292,8 @@ h3 {
     transition: opacity 0.3s ease;
 }
 .swiper-pagination-bullet-active {
-    background-color: white !important;
+    background-color: red !important;
+    bottom:10% !important;
 }
 
 /* the slides and the loader should fill the whole 9:16 zone */
@@ -143,12 +304,35 @@ h3 {
 }
 
 /* Most of the elements in this demo are absolute positioned with percentages */
-#title-slide header, #credit-slide header{
+#title-slide header{
+    font-size: 40%;
+    bottom: 25%;
+    position: absolute;
+    margin: 5%;
+    z-index:2;
+    width: 50%;
+    font-family: 'Albert Sans', sans-serif;
+    font-weight: bold;
+}
+
+#title-slide img{
+    width: 100%;
+    height:100%;
+    text-align: center;
+    bottom: 0%;
+    left: 0%; /* center the logo, in interaction with the negative margin-left */
+    margin-top:calc(-7.5% * 9 / 16 ); /* margins are relative to the element width... :-( */
+    position: absolute;
+    z-index: 1;
+}
+
+#credit-slide header{
     text-align: left;
     width: 100%;
     top: 10%;
     position: absolute;
     font-size: 30%;
+    font-family: 'Albert Sans';
     z-index: 2;
 }
 
@@ -157,19 +341,6 @@ h3 {
     text-align: left;
     top: 100%;
     position: absolute;
-}
-
-.imgPrincipale{
-    text-align: center;
-    width: 50%;
-    left: 50%; /* center the logo, in interaction with the negative margin-left */
-    top: 50%;
-    margin-left:-25%; /* this is half the width */
-    margin-top:calc(-7.5% * 9 / 16 ); /* margins are relative to the element width... :-( */
-    position: absolute;
-    font-size: 50%;
-    z-index: 2;
-    cursor: pointer;
 }
 
 /* Last slide image is centered */
