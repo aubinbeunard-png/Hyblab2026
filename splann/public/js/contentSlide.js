@@ -58,6 +58,7 @@ const createEmptyContent = async function(){
             
             sliderWrapper.insertBefore(slide, endSlide);
             }
+            
             let extend = document.createElement("section")
             extend.id = "extended-content"
             console.log(data.volet[i].extendedContent)
