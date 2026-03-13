@@ -8,7 +8,9 @@ const createEmptyContent = async function(){
     const nVolet = data.nVolet;
     let nBullet = 0;
 
-    const endSlide = document.querySelector("#credit-slide");
+    const endSlide = document.querySelector("#last-slide");
+    console.log("aA");
+    console.log(endSlide);
     const sliderWrapper = document.querySelector(".swiper-wrapper");
 
     let slide;
