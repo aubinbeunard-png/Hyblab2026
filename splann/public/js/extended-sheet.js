@@ -7,12 +7,14 @@ const addExtend = async function(swiper){
   const pagination = document.querySelector('.swiper-pagination');
   const contents = document.querySelectorAll('.content')
   const butts = document.querySelectorAll('.toggle-btn')
+  const degrades = document.querySelectorAll("#degrade-extended")
 
   for(let i=0;i<sheets.length;i++){
     let sheet=sheets[i]
     let handlebar = handlebars[i]
     let content = contents[i]
     let butt = butts[i]
+    let degrade = degrades[i]
     if (sheet.dataset.initialized) return;
       sheet.dataset.initialized = true; 
     let isOpen=false;

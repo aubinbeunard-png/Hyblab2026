@@ -107,6 +107,12 @@ const createEmptyContent = async function(){
                 }
             }
 
+            const degrade = document.createElement('img')
+            degrade.id = "degrade-extended"
+            degrade.src = "img/degrade_noir.png"
+
+            content.appendChild(degrade)
+
             const linkEnquete = document.createElement("a")
             linkEnquete.id = "link-enquete"
             linkEnquete.href = data.volet[i].lienVolet

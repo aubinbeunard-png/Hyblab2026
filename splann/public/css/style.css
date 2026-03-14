@@ -236,11 +236,6 @@ h3 {
     top:0%;
     z-index: 5;
 }
-
-#extended-content {
-    background-color: black;
-    text-decoration-color: white;
-}
 /* -------------- Loader --------------*/
 #loader{
     z-index: 2;
@@ -477,7 +472,7 @@ body{
   left: 2.5%;
   width: 95%;
   padding-bottom: 16px;
-  background: black;
+  background: #1E1E1E;
   border-radius: 16px 16px 0 0;
   box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.2);
   max-height: 75vh;
@@ -495,7 +490,7 @@ body{
 }
 
 .handle-bar {
-  color: black;
+  color: #1E1E1E;
   height: 80px;
   display: flex;
   align-items: center;
@@ -530,6 +525,7 @@ body{
 
 .content > a {
     color: white;
+    z-index: 10;
     width: 50%;
     display: block;
     margin-left: 17%;
@@ -544,6 +540,8 @@ body{
     padding-bottom: 2%;
     font-size: 66%;
     border: 0.5em solid #8e3a3f;
+    position: relative;
+    bottom: 10%;
 }
 
 #extended-content-title {
@@ -575,6 +573,13 @@ body{
 
 .bottom-sheet.done .toggle-btn {
   rotate: 0deg !important;
+}
+
+#degrade-extended{
+    width: 100%;
+    bottom: 0%;
+    position: absolute;
+    left: 0%;
 }
 
 /* ---- Slide d'ouverture vers d'autres articles -----*/
