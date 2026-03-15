@@ -1,5 +1,46 @@
 "use strict";
-
+const animateSheetText = function(content) {
+  const paras = content.querySelectorAll('p:not(#extended-content-title)');
+  const result = Splitting({ target: paras, by: 'words' });
+  const allWords = result.flatMap(r => r.words);
+ 
+  // Garde le titre toujours visible
+  const title = content.querySelector('#extended-content-title');
+  if (title) title.style.opacity = '1';
+ 
+  // ── Premier paragraphe : animation GSAP à l'ouverture ─────────
+  const firstParaWords = result[0] ? result[0].words : [];
+  firstParaWords.forEach(w => w.style.opacity = '0');
+ 
+  gsap.to(firstParaWords, {
+    opacity: 1,
+    stagger: 0.05,
+    duration: 0.3,
+    ease: 'power2.out',
+    delay: 0.1
+  });
+ 
+  // ── Reste du texte : contrôlé par le scroll ───────────────────
+  const firstParaWordCount = firstParaWords.length;
+  const restWords = allWords.slice(firstParaWordCount);
+  restWords.forEach(w => w.style.opacity = '0');
+ 
+  const updateWords = () => {
+    const scrollTop    = content.scrollTop;
+    const scrollHeight = content.scrollHeight;
+    const clientHeight = content.clientHeight;
+    const maxScroll    = scrollHeight - clientHeight;
+ 
+    restWords.forEach((word, index) => {
+      const threshold = (index / restWords.length) * maxScroll * 1; 
+      word.style.opacity    = scrollTop >= threshold ? '1' : '0';
+      word.style.transition = 'opacity 0.2s ease';
+    });
+  };
+ 
+  content.addEventListener('scroll', updateWords);
+  updateWords();
+};
 // async init function (because of the awaits on fetches)
 const addExtend = async function(swiper){
   const sheets = document.querySelectorAll('.bottom-sheet');
@@ -76,6 +117,11 @@ const addExtend = async function(swiper){
       isOpen=!isOpen;
       sheet.classList.toggle('open',isOpen);
       pagination.classList.toggle('hidden',isOpen);
+
+      if (isOpen && !content._animDone) {
+        content._animDone = true;
+        setTimeout(() => animateSheetText(content), 10);
+      }
     });
 
     swiper.on('slideChange', function () {
