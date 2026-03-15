@@ -659,6 +659,10 @@ body{
   transform: translateY(0);
 }
 
+.bottom-sheet .content .word {
+  display: inline-block;
+}
+
 .handle-bar {
   color: #1E1E1E;
   height: 80px;
