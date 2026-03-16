@@ -53,7 +53,7 @@ const addExtend = async function(swiper){
   sheet.dataset.initialized = true;
   
   const handlebars = document.querySelectorAll('.handle-bar'); 
-  const pagination = document.querySelector('.swiper-pagination');
+  const pagination = document.querySelector('.nav-bar-hierarchical');
   const contents = document.querySelectorAll('.content')
   const butts = document.querySelectorAll('.toggle-btn')
   const degrades = document.querySelectorAll("#degrade-extended")

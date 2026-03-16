@@ -19,7 +19,8 @@
   });
   
   addExtend(swiper);
-document.getElementById('btn-download').addEventListener('click', async () => {
+  dessinerLaBarre(swiper);
+  document.getElementById('btn-download').addEventListener('click', async () => {
  
   // Récupère le titre depuis le JSON
   const response = await fetch('data/contaminationMiniere.json');
@@ -113,6 +114,8 @@ document.getElementById('btn-download').addEventListener('click', async () => {
     else{
       initContentSlide(index)
     }
+
+    dessinerLaBarre(swiper);
   });
 
   swiper.on('slideChange', function () {
@@ -146,3 +149,52 @@ document.getElementById('btn-download').addEventListener('click', async () => {
     initSlide1();
   }, 1000);
 })();
+
+// 4. La fonction qui dessine la barre (Adaptée de ton test2_segmentation)
+function dessinerLaBarre(swiper) {
+
+  const structureManuelle = [
+    { name: "Intro", slides: 2 }, 
+    { name: "Enquête", slides: 7 }, 
+    { name: "Fin", slides: 2 }
+  ];
+
+
+  const navContainer = document.getElementById('navBar');
+  if (!navContainer) return;
+
+  navContainer.innerHTML = ''; // On vide
+  let indexActuel = swiper.activeIndex;
+  let cumul = 0;
+
+  structureManuelle.forEach(volet => {
+    const voletDiv = document.createElement('div');
+    voletDiv.className = 'volet';
+    
+    const debut = cumul;
+    const fin = cumul + volet.slides - 1;
+
+    // État : Déjà passé
+    if (indexActuel > fin) {
+      voletDiv.classList.add('parcouru');
+    } 
+    // État : On est dedans
+    else if (indexActuel >= debut && indexActuel <= fin) {
+      voletDiv.classList.add('active');
+      for (let i = 0; i < volet.slides; i++) {
+        const dot = document.createElement('div');
+        dot.className = 'inner-dot';
+        // On allume le point si on l'a passé
+        if (debut + i <= indexActuel) dot.classList.add('active');
+        // Le dernier point est un triangle
+        if (i === volet.slides - 1) dot.classList.add('is-last');
+        voletDiv.appendChild(dot);
+      }
+    }
+
+    // Si on clique sur l'ovale, on va au début du volet
+    voletDiv.onclick = () => swiper.slideTo(debut);
+    navContainer.appendChild(voletDiv);
+    cumul += volet.slides;
+  });
+}
