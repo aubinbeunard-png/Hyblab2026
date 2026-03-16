@@ -652,7 +652,7 @@ body{
 /* Content pour la pop up qui a les infos approfondis des bullets points */
 .bottom-sheet {
   position: absolute;
-  bottom: 30vh;
+  bottom: 35vh;
   left: 2.5vw;
   width: 95vw;
   padding-bottom: 16px;
