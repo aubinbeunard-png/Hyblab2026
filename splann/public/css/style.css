@@ -259,9 +259,9 @@ h3 {
 /* Swiper slider. Need to fill the container */
 #mySwiper {
     width: 100vw;
-    height: 95vh;
+    height: 100vh;
     position: absolute;
-    bottom: -2%;
+    bottom: -13%;
 }
 
 .swiper-button-next,
@@ -331,7 +331,7 @@ h3 {
 
 .imgPrincipale {
     width: 100vw;
-    height: 95vh;
+    height: 100vh;
     text-align: center;
     bottom: 0vh;
     left: 0vw;
@@ -365,12 +365,6 @@ h3 {
     position: absolute;
     margin-left:-25vw; /* this is half the width */
     margin-top:calc(-25vh * 9 / 16 ); /* margins are relative to the element width... :-( */
-}
-
-main > section{
-    background-image: url('../img/background.svg');
-    background-size: 100vw auto; /* background is full width and height is proportional to width */
-    background-position: bottom; /* background is bottom aligned */
 }
 
 
